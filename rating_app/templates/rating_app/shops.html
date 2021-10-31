@@ -1,0 +1,15 @@
+{% extends "rating_app/base.html" %}
+
+{% block content %}
+
+<p>Geschäfte</p>
+<ul>
+    {% for shop in shops %}
+    <li>{{ shop }}</li>
+    {% empty %}
+    <li>Keine Geschäfte angelegt.</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}

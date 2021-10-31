@@ -1,0 +1,15 @@
+{% extends "rating_app/base.html" %}
+
+{% block content %}
+
+<p>{{ shop }}</p>
+<p>Mitarbeiter</p>
+<ul>
+    {% for employee in employees %}
+    <li>{{ employee }}</li>
+    {% empty %}
+    <li>Keine Mitarbeiter angelegt.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
