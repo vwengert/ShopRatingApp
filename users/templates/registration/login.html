@@ -1,0 +1,17 @@
+{% extends 'rating_app/base.html' %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Dein Benutzername und Passwort stimmen nicht. Versuche es nochmals.</p>
+  {% endif %}
+
+  <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button name="submit">Anmelden</button>
+        <input type="hidden" name="next" value="{% url 'rating_app:index' %}" />
+  </form>
+
+{% endblock content %}

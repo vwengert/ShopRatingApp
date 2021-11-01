@@ -3,9 +3,11 @@
 {% block content %}
 
 <p>Geschäfte</p>
+<a href="{% url 'rating_app:new_shop' %}">Neues Geschäft</a>
 <ul>
     {% for shop in shops %}
-    <li>{{ shop }}</li>
+    <li><a href="{% url 'rating_app:shop' shop.id %}">{{ shop }}</a>
+    </li>
     {% empty %}
     <li>Keine Geschäfte angelegt.</li>
     {% endfor %}

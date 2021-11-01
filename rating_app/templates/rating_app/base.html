@@ -6,11 +6,17 @@
 </head>
 <body>
 <p>
+{% if user.is_authenticated %}
+    Hallo {{ user.username }}.
+    <a href="{% url 'users:logout' %}">Abmelden</a>
+{% else %}
+    <a href="{% url 'users:login' %}">Anmelden</a>
+    <a href="{% url 'users:register' %}">Registrieren</a>
+{% endif %} </p>
+<p>
     <a href="{% url 'rating_app:index' %}">Rating App</a>
-</p><p>
     <a href="{% url 'rating_app:shops' %}">Geschäfte</a>
 </p>
-
 {% block content %}{% endblock content %}
 
 </body>

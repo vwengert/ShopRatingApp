@@ -1,0 +1,11 @@
+{% extends "rating_app/base.html" %}
+
+{% block content %}
+    <p><a href="{% url 'rating_app:shop' shop.id %}">{{ shop }}</a></p>
+    <p>Bewertung ändern</p>
+    <form action="{% url 'rating_app:edit_rating' rating.id %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Speichere Änderung</button>
+    </form>
+{% endblock content %}

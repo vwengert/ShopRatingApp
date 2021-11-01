@@ -1,0 +1,10 @@
+{% extends "rating_app/base.html" %}
+
+{% block content %}
+    <p>Neues Geschäft hinzufügen</p>
+    <form action="{% url 'rating_app:new_shop' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Geschäft hinzufügen</button>
+    </form>
+{% endblock content %}

@@ -3,12 +3,16 @@
 {% block content %}
 
 <p>{{ shop }}</p>
-<p>Mitarbeiter</p>
+<p>
+    <a href="{% url 'rating_app:new_rating' shop.id %}">Neue Bewertung</a>
+</p>
 <ul>
-    {% for employee in employees %}
-    <li>{{ employee }}</li>
+    {% for rating in ratings %}
+    <li><a href="{% url 'rating_app:edit_rating' rating.id %}">
+        {{ rating.date_added|date:'d M, Y H:i' }}: {{ rating }}
+    </a></li>
     {% empty %}
-    <li>Keine Mitarbeiter angelegt.</li>
+    <li>Keine Bewertungen angelegt.</li>
     {% endfor %}
 </ul>
 
