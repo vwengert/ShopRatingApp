@@ -1,6 +1,9 @@
 # ShopRatingApp
 App to Rate Shops
 
+# installing the required modules
+sudo pip install -r requrements.txt
+
 # use venv for virtual environment
 source /venv/Scripts/activate
 
