@@ -5,8 +5,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Shop(models.Model):
     """A Shop where the user later will rate services"""
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['name', 'owner'], name='owner_unique_shop')
+        ]
 
     def __str__(self):
         """Return a string representation of the Shop."""

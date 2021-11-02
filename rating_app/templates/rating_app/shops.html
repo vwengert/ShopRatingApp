@@ -1,12 +1,15 @@
 {% extends "rating_app/base.html" %}
 
+{% block page_header %}
+<h1>Geschäfte</h1>
+{% endblock page_header %}
+
 {% block content %}
 
-<p>Geschäfte</p>
-<a href="{% url 'rating_app:new_shop' %}">Neues Geschäft</a>
+<p><a href="{% url 'rating_app:new_shop' %}">Neues Geschäft</a></p>
 <ul>
     {% for shop in shops %}
-    <li><a href="{% url 'rating_app:shop' shop.id %}">{{ shop }}</a>
+    <li><h3><a href="{% url 'rating_app:shop' shop.id %}">{{ shop }}</a></h3>
     </li>
     {% empty %}
     <li>Keine Geschäfte angelegt.</li>

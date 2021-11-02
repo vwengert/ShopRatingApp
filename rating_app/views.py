@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db import IntegrityError
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from .models import Shop, Rating
@@ -36,10 +37,13 @@ def new_shop(request):
     else:
         form = ShopForm(data=request.POST)
         if form.is_valid():
-            newShop = form.save(commit=False)
-            newShop.owner = request.user
-            newShop.save()
-            return redirect('rating_app:shops')
+            try:
+                newShop = form.save(commit=False)
+                newShop.owner = request.user
+                newShop.save()
+                return redirect('rating_app:shops')
+            except IntegrityError:
+                raise Http404("Geschäft existiert bereits.")
 
     context = {'form': form}
     return render(request, 'rating_app/new_shop.html', context)

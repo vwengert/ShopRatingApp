@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     # Project specific Apps
     'rating_app',
     'users',
+    # third Party Apps
+    'bootstrap4',
     # Django Standard Apps
     'django.contrib.admin',
     'django.contrib.auth',

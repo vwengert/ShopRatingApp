@@ -1,18 +1,27 @@
 {% extends "rating_app/base.html" %}
 
-{% block content %}
+{% block page_header %}
+<h1>{{ shop.name }}</h1>
+{% endblock page_header %}
 
-<p>{{ shop }}</p>
+{% block content %}
 <p>
     <a href="{% url 'rating_app:new_rating' shop.id %}">Neue Bewertung</a>
 </p>
 <ul>
     {% for rating in ratings %}
-    <li><a href="{% url 'rating_app:edit_rating' rating.id %}">
-        {{ rating.date_added|date:'d M, Y H:i' }}: {{ rating }}
-    </a></li>
+    <div class="card mb-3">
+        <h4 class="card-header">
+            {{ rating.rating }} am
+            {{ rating.date_added|date:'M d, Y H:i' }}
+            <small><a href="{% url 'rating_app:edit_rating' rating.id %}">Eintrag ändern</a></small>
+        </h4>
+        <div class="card-body">
+            {{ rating.description|linebreaks }}
+        </div>
+    </div>
     {% empty %}
-    <li>Keine Bewertungen angelegt.</li>
+    <li><h3>Keine Bewertungen angelegt.</h3></li>
     {% endfor %}
 </ul>
 
