@@ -1,0 +1,14 @@
+[Unit]
+Description=Shop Rating App
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash /home/pi/ShopRatingApp/StartShopRating.sh
+WorkingDirectory=/home/pi/ShopRatingApp
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
