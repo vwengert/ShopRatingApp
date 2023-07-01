@@ -6,7 +6,7 @@ Django==3.2.19
 django-bootstrap4==3.0.1
 docopt==0.6.2
 idna==3.3
-pipreqs==0.4.11
+pipreqs==0.4.12
 pytz==2021.3
 requests==2.31.0
 soupsieve==2.2.1
