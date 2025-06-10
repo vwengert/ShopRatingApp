@@ -8,7 +8,7 @@ docopt==0.6.2
 idna==3.7
 pipreqs==0.4.12
 pytz==2021.3
-requests==2.32.2
+requests==2.32.4
 soupsieve==2.2.1
 sqlparse==0.5.0
 urllib3==1.26.19
